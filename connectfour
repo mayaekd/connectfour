@@ -1,0 +1,9 @@
+def printBoard(board):
+    for row in range(len(board[0])-1):
+        for col in range(len(board)-1):
+            print(board[len(board)-1-row] [len(board[0])-1-col], end=" ")
+        print(" ")
+board = [['0' for i in range(8)] for i in range(7)] #7 columns each with 8 values
+board[0][3] = '\u2022' #black
+board[0][4] = '\u25E6' #red
+printBoard(board)
