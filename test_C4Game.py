@@ -44,10 +44,12 @@ class TestC4Game(unittest.TestCase):
 		game = C4Game(2, 3, 4, 2, 0, "Maya", "Joey")
 		b = colored('O', 'blue')
 		r = colored('O', 'red')
-		turn0Exp = [['-','-','-'],
-					['-','-','-'],
-					['-','-','-'],
-					['-','-','-']]
+		turn0Exp = [
+			['-','-','-'],
+			['-','-','-'],
+			['-','-','-'],
+			['-','-','-']
+		]
 		self.assertEqual(game.board, turn0Exp)
 		game.play(1)
 		turn1Exp = [
