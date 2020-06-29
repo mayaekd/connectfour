@@ -50,28 +50,36 @@ class TestC4Game(unittest.TestCase):
 					['-','-','-']]
 		self.assertEqual(game.board, turn0Exp)
 		game.play(1)
-		turn1Exp = [[  b,'-','-'],
-					['-','-','-'],
-					['-','-','-'],
-					['-','-','-']]
+		turn1Exp = [
+			[b, '-', '-'],
+			['-', '-', '-'],
+			['-', '-', '-'],
+			['-', '-', '-']
+		]
 		self.assertEqual(game.board, turn1Exp)
 		game.play(1)
-		turn2Exp = [[  b,'-','-'],
-					[  r,'-','-'],
-					['-','-','-'],
-					['-','-','-']]
+		turn2Exp = [
+			[  b,'-','-'],
+			[  r,'-','-'],
+			['-','-','-'],
+			['-','-','-']
+		]
 		self.assertEqual(game.board, turn2Exp)
 		game.play(2)
-		turn3Exp = [[  b,  b,'-'],
-					[  r,'-','-'],
-					['-','-','-'],
-					['-','-','-']]
+		turn3Exp = [
+			[b, b, '-'],
+			[r, '-', '-'],
+			['-', '-', '-'],
+			['-', '-', '-']
+		]
 		self.assertEqual(game.board, turn3Exp)
 		game.play(3)
-		turn4Exp = [[  b,  b,  r],
-					[  r,'-','-'],
-					['-','-','-'],
-					['-','-','-']]
+		turn4Exp = [
+			[  b,  b,  r],
+			[  r,'-','-'],
+			['-','-','-'],
+			['-','-','-']
+		]
 		self.assertEqual(game.board, turn4Exp)
 		game.play(2)
 		turn5Exp = [[  b,  b,  r],
