@@ -192,19 +192,31 @@ class C4Game:
         _______________________
 
         """
-        horizontalWins = {}
-        # for each horizontalWinTuple: (must figure these out based on board size)
-            # horizontalWins.add(horizontalWinTuple)
-        verticalWins = {}
-        # for each verticalWinTuple: (must figure these out based on board size)
-            # verticalWins.add(verticalWinTuple)
-        diagonalUpWins = {}
-        # for each diagonalUpWinTuple: (must figure these out based on board size)
-            # diagonalUpWins.add(diagonalUpWinTuple)
-        diagonalDownWins = {}
-        # for each diagonalDownWinTuple: (must figure these out based on board size)
-            # diagonalDownWins.add(diagonalDownWinTuple)
-        allWins = {}
+        horizontalWins = set()
+        for row in range(self.boardHeight):
+            for startingColumn in range(self.boardWidth - self.winLength + 1):
+                newWin = frozenset([(startingColumn + i, row) for i in range(self.winLength)])
+                horizontalWins.add(newWin)
+
+        verticalWins = set()
+        for column in range(self.boardWidth):
+            for startingRow in range(self.boardHeight - self.winLength + 1):
+                newWin = frozenset([(column, startingRow + i) for i in range(self.winLength)])
+                verticalWins.add(newWin)
+
+        diagonalUpWins = set()
+        for startingRow in range(self.boardHeight - self.winLength + 1):
+            for startingColumn in range(self.boardWidth - self.winLength + 1):
+                newWin = frozenset([(startingColumn + i, startingRow + i) for i in range(self.winLength)])
+                diagonalUpWins.add(newWin)
+
+        diagonalDownWins = set()
+        for startingRow in range(self.winLength - 1, self.boardHeight):
+            for startingColumn in range(self.boardWidth - self.winLength + 1):
+                newWin = frozenset([(startingColumn + i, startingRow - i) for i in range(self.winLength)])
+                diagonalDownWins.add(newWin)
+
+        allWins = set()
         allWins = allWins.union(horizontalWins, verticalWins, diagonalUpWins, diagonalDownWins)
         return allWins
 
